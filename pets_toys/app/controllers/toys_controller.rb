@@ -9,8 +9,10 @@ class ToysController < ApplicationController
     @toy = @toys.first
 
     if request.xhr?
+      # If the pet link is clicked
       render json: @toy
     else
+      # Direct URL
       render json: @toys
     end
 
