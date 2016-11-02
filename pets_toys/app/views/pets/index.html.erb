@@ -2,6 +2,6 @@
 
 <ul>
 <% @pets.each do |pet| %>
-  <li><%= link_to(pet.name, pet_toys_path(pet)) %></li>
+  <li><%= link_to(pet.name, pet_toys_path(pet), remote: true, class: "pet-toy-link") %></li>
 <% end %>
 </ul>

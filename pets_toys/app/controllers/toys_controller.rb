@@ -4,11 +4,8 @@ class ToysController < ApplicationController
     @pet = Pet.find(params[:pet_id])
     @toys = @pet.toys
 
-    if request.xhr?
-      #ajax
-    else
-      render json: @toys
-    end
+    render json: @toys
+
   end
 
   def show
