@@ -1,7 +1,8 @@
 class ToysController < ApplicationController
 
+  before_action :set_pet
+
   def index
-    @pet = Pet.find(params[:pet_id])
     @toys = @pet.toys
     # Shortest toy description
     @toys = @pet.toys.sort { |toy1, toy2| toy1.description.length <=> toy2.description.length }
@@ -16,7 +17,12 @@ class ToysController < ApplicationController
   end
 
   def show
-    @pet = Pet.find(params[:pet_id])
     @toy = Toy.find(params[:id])
+  end
+
+  private
+
+  def set_pet
+    @pet = Pet.find(params[:pet_id])
   end
 end
